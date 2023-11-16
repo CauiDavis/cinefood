@@ -86,24 +86,51 @@ class Client extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           actions: [
-            Image.asset(
-              'assets/appbarIcon.png',
-              width: 110,
-              height: 30,
+            Container(
+              margin: const EdgeInsets.only(left: 20),
+              child: Image.asset(
+                'assets/appbarIcon.png',
+                width: 110,
+                height: 30,
+              ),
             ),
-            const SizedBox(width: 220),
-            IconButton(
-              onPressed: () => {},
-              icon: Image.asset('assets/exitIcon.png', width: 30, height: 30),
+            const SizedBox(
+              width: 180,
             ),
+            Container(
+              margin: const EdgeInsets.only(right: 20),
+              child: IconButton(
+                onPressed: () => {},
+                icon: Image.asset('assets/exitIcon.png', width: 30, height: 30),
+              ),
+            )
           ],
         ),
         body: SafeArea(
             child: Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.8,
-          ),
-        )),
+                child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 26),
+          child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.95,
+              child: const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Comida',
+                    style: TextStyle(
+                      color: Color(0xFFFEDE6B),
+                      fontSize: 24,
+                    ),
+                  ),
+                  Row(
+                    children: [Card()],
+                  ),
+                  Row(
+                    children: [],
+                  )
+                ],
+              )),
+        ))),
         bottomNavigationBar: BottomAppBar(
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
