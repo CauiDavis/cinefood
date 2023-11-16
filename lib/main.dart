@@ -10,10 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Scraxy',
       theme: ThemeData(
         scaffoldBackgroundColor: const Color(0x50170D0D),
         primarySwatch: Colors.blue,
+        iconTheme: const IconThemeData(color: Color(0xFFE1E0D7)),
+        bottomAppBarTheme: const BottomAppBarTheme(color: Color(0xFF432727)),
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF432727),
         ),
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
           ),
         )),
       ),
-      home: const Users(),
+      home: Client(),
     );
   }
 }
@@ -54,17 +57,17 @@ class Users extends StatelessWidget {
                   padding: const EdgeInsets.all(20.0),
                   child: ElevatedButton(
                     onPressed: () {},
-                    child: const Text("cliente"),
                     style: ElevatedButton.styleFrom(
                         minimumSize: const Size(240, 40)),
+                    child: const Text("cliente"),
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () {},
-                  child: const Text("administrador"),
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(240, 40),
                   ),
+                  child: const Text("administrador"),
                 ),
               ],
             ),
@@ -72,5 +75,46 @@ class Users extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class Client extends StatelessWidget {
+  const Client({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          actions: [
+            Image.asset(
+              'assets/appbarIcon.png',
+              width: 110,
+              height: 30,
+            ),
+            const SizedBox(width: 220),
+            IconButton(
+              onPressed: () => {},
+              icon: Image.asset('assets/exitIcon.png', width: 30, height: 30),
+            ),
+          ],
+        ),
+        body: SafeArea(
+            child: Center(
+              child: Container(
+                width: MediaQuery.of(context).size.width * 0.8,
+          ),
+        )),
+        bottomNavigationBar: BottomAppBar(
+          child:
+              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+            IconButton(onPressed: () => {}, icon: Icon(Icons.home)),
+            IconButton(
+              onPressed: () => {},
+              icon: Icon(Icons.history),
+            ),
+            IconButton(onPressed: () => {}, icon: Icon(Icons.star)),
+            IconButton(onPressed: () => {}, icon: Icon(Icons.person)),
+          ]),
+        ));
   }
 }
