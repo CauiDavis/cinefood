@@ -1,3 +1,5 @@
+import 'package:cinefood/screens/client.dart';
+import 'package:cinefood/widgets/global_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,136 +14,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Scraxy',
-      theme: ThemeData(
-        scaffoldBackgroundColor: const Color(0x50170D0D),
-        primarySwatch: Colors.blue,
-        iconTheme: const IconThemeData(color: Color(0xFFE1E0D7)),
-        bottomAppBarTheme: const BottomAppBarTheme(color: Color(0xFF432727)),
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF432727),
-        ),
-        elevatedButtonTheme: const ElevatedButtonThemeData(
-            style: ButtonStyle(
-          backgroundColor: MaterialStatePropertyAll<Color>(Color(0xFF432727)),
-          shape: MaterialStatePropertyAll<RoundedRectangleBorder>(
-            RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20)),
-            ),
-          ),
-        )),
-      ),
+      theme: GlobalTheme.themeData,
       home: Client(),
     );
   }
 }
 
-class Users extends StatelessWidget {
-  const Users({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment
-                  .center, // Alinha os widgets verticalmente ao centro
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Image(
-                  image: AssetImage('assets/scraxyIcon.png'),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(240, 40)),
-                    child: const Text("cliente"),
-                  ),
-                ),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(240, 40),
-                  ),
-                  child: const Text("administrador"),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
 
-class Client extends StatelessWidget {
-  const Client({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          actions: [
-            Container(
-              margin: const EdgeInsets.only(left: 20),
-              child: Image.asset(
-                'assets/appbarIcon.png',
-                width: 110,
-                height: 30,
-              ),
-            ),
-            const SizedBox(
-              width: 180,
-            ),
-            Container(
-              margin: const EdgeInsets.only(right: 20),
-              child: IconButton(
-                onPressed: () => {},
-                icon: Image.asset('assets/exitIcon.png', width: 30, height: 30),
-              ),
-            )
-          ],
-        ),
-        body: SafeArea(
-            child: Center(
-                child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 26),
-          child: SizedBox(
-              width: MediaQuery.of(context).size.width * 0.95,
-              child: const Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    'Comida',
-                    style: TextStyle(
-                      color: Color(0xFFFEDE6B),
-                      fontSize: 24,
-                    ),
-                  ),
-                  Row(
-                    children: [Card()],
-                  ),
-                  Row(
-                    children: [],
-                  )
-                ],
-              )),
-        ))),
-        bottomNavigationBar: BottomAppBar(
-          child:
-              Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-            IconButton(onPressed: () => {}, icon: Icon(Icons.home)),
-            IconButton(
-              onPressed: () => {},
-              icon: Icon(Icons.history),
-            ),
-            IconButton(onPressed: () => {}, icon: Icon(Icons.star)),
-            IconButton(onPressed: () => {}, icon: Icon(Icons.person)),
-          ]),
-        ));
-  }
-}
