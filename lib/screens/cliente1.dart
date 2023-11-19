@@ -21,7 +21,11 @@ class _CustomBottomNavigationBarState extends State<Client1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar.appBar,
+      appBar: CustomAppBar(
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ).buildAppBar(),
       body: SafeArea(
         child: IndexedStack(
           index: _selectedIndex,
