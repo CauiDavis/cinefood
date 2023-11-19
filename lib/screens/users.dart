@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'cliente1.dart';
+
 class Users extends StatelessWidget {
   const Users({super.key});
 
@@ -21,14 +23,21 @@ class Users extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Client1()),
+                      );
+                    },
                     style: ElevatedButton.styleFrom(
                         minimumSize: const Size(240, 40)),
                     child: const Text("cliente"),
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    
+                  },
                   style: ElevatedButton.styleFrom(
                     minimumSize: const Size(240, 40),
                   ),
