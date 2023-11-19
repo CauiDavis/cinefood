@@ -9,7 +9,7 @@ class Client extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: CustomAppBar.appBar,
+        
         body: SafeArea(
             child: Center(
                 child: Padding(
