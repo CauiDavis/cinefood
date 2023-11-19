@@ -1,5 +1,6 @@
 import 'package:cinefood/screens/client.dart';
 import 'package:cinefood/core/global_theme.dart';
+import 'package:cinefood/screens/users.dart';
 import 'package:flutter/material.dart';
 
 import 'screens/cliente1.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Scraxy',
       theme: GlobalTheme.themeData,
-      home: Client1(),
+      home: Users(),
     );
   }
 }
