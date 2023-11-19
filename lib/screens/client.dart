@@ -1,4 +1,4 @@
-import 'package:cinefood/widgets/bottom_app_bar.dart';
+import 'package:cinefood/widgets/bottom_navigator_bar.dart';
 import 'package:cinefood/widgets/cards_home.dart';
 import 'package:flutter/material.dart';
 import '../widgets/app_bar.dart';
@@ -42,7 +42,7 @@ class Client extends StatelessWidget {
                 ],
               )),
         ))),
-        bottomNavigationBar: CustomBottomAppBar.bottomNavigationBar,
+        bottomNavigationBar:  CustomBottomNavigationBar()
         );
   }
 }
