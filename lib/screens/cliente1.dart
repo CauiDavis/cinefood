@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/app_bar.dart';
+import '../widgets/cards_home.dart';
 
 class Client1 extends StatefulWidget {
   const Client1({Key? key}) : super(key: key);
@@ -30,7 +31,37 @@ class _CustomBottomNavigationBarState extends State<Client1> {
         child: IndexedStack(
           index: _selectedIndex,
           children: [
-            Center(child: Text('Conteúdo da Página 1')),
+            Center(child: SafeArea(
+                  child: Center(
+                      child: Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 40, horizontal: 26),
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.95,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Comida',
+                          style: TextStyle(
+                            color: Color(0xFFFEDE6B),
+                            fontSize: 24,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            CardsHome(),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            CardsHome(),
+                          ],
+                        )
+                      ],
+                    )),
+              ))),
+            ),
             Center(child: Text('Conteúdo da Página 2')),
             Center(child: Text('Conteúdo da Página 3')),
             Center(child: Text('Conteúdo da Página 4')),
