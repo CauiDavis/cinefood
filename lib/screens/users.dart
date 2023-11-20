@@ -1,7 +1,5 @@
+import 'package:cinefood/screens/client_page.dart';
 import 'package:flutter/material.dart';
-
-import 'cliente1.dart';
-
 class Users extends StatelessWidget {
   const Users({super.key});
 
@@ -26,7 +24,7 @@ class Users extends StatelessWidget {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Client1()),
+                        MaterialPageRoute(builder: (context) => ClientPage()),
                       );
                     },
                     style: ElevatedButton.styleFrom(
