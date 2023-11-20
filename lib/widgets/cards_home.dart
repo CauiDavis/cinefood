@@ -19,8 +19,8 @@ class _SelectableCardState extends State<CardsHome> {
         });
       },
       child: Container(
-        width: 150,
-        height: 80,
+        width: 164,
+        height: 92,
         child: Card(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(2),
