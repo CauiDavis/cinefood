@@ -8,42 +8,35 @@ class HomeClient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      
       body: SafeArea(
           child: Center(
               child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 26),
-        child: Column(children: [
-            SizedBox(
-                width: MediaQuery.of(context).size.width * 0.95,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Comida',
-                      style: TextStyle(
-                        color: Color(0xFFFEDE6B),
-                        fontSize: 24,
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CardsHome(),
-                        CardsHome(),
-                      ],
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        CardsHome(),
-                        CardsHome(),
-                      ],
-                    )
-                  ],
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Comida',
+                style: TextStyle(
+                  color: Color(0xFFFEDE6B),
+                  fontSize: 24,
                 )),
-                SizedBox(height: 40,),
-                SizedBox(
+            Expanded(
+                child: SizedBox.expand(
+                    child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+               
+                childAspectRatio: 1.2,
+              ),
+              itemCount: 4,
+              itemBuilder: (context, index) {
+                return CardsHome();
+              },
+            ))),
+            SizedBox(
+              height: 40,
+            ),
+            SizedBox(
                 width: MediaQuery.of(context).size.width * 0.95,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,8 +64,8 @@ class HomeClient extends StatelessWidget {
                     )
                   ],
                 )),
-          ],),
-        
+          ],
+        ),
       ))),
     );
   }
