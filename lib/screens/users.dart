@@ -1,5 +1,7 @@
+import 'package:cinefood/core/custom_colors.dart';
 import 'package:cinefood/screens/client_page.dart';
 import 'package:flutter/material.dart';
+
 class Users extends StatelessWidget {
   const Users({super.key});
 
@@ -28,18 +30,46 @@ class Users extends StatelessWidget {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(240, 40)),
-                    child: const Text("cliente"),
+                        maximumSize: const Size(240, 40)),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Cliente",
+                          style: TextStyle(
+                            color: CustomColors.quaternaryColor,
+                          ),
+                        ),
+                        SizedBox(width: 4),
+                        Icon(
+                          Icons.person_2,
+                          color: CustomColors.quaternaryColor,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    
-                  },
+                  onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    minimumSize: const Size(240, 40),
+                    maximumSize: const Size(240, 40),
                   ),
-                  child: const Text("administrador"),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Administrador",
+                        style: TextStyle(
+                          color: CustomColors.quaternaryColor,
+                        ),
+                      ),
+                      SizedBox(width: 4),
+                      Icon(
+                        Icons.person_3,
+                        color: CustomColors.quaternaryColor,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
