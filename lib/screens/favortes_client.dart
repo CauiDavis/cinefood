@@ -12,7 +12,7 @@ class FavoritesClient extends StatelessWidget {
       body: SafeArea(
           child: Center(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 26),
+          padding: const EdgeInsets.only(top: 40, right: 26, left: 26),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -40,6 +40,52 @@ class FavoritesClient extends StatelessWidget {
                   return CardsHome();
                 },
               ))),
+              Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    maximumSize: const Size(100, 40),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Pedir",
+                        style: TextStyle(
+                          color: CustomColors.secondaryColor,
+                        ),
+                      ),
+                      SizedBox(width: 4),
+                      Icon(
+                        Icons.offline_pin,
+                        color: CustomColors.secondaryColor,
+                      ),
+                    ],
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    maximumSize: const Size(120, 40),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Remover",
+                        style: TextStyle(
+                          color: CustomColors.secondaryColor,
+                        ),
+                      ),
+                      SizedBox(width: 4),
+                      Icon(
+                        Icons.star_border,
+                        color: CustomColors.secondaryColor,
+                      ),
+                    ],
+                  ),
+                ),
+              ]),
             ],
           ),
         ),
