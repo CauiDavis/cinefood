@@ -40,9 +40,8 @@ class _CustomBottomNavigationBarState extends State<CustomBottomNavigationBar> {
           label: 'Perfil',
         ),
       ],
-      
-       // Para garantir que todos os itens sejam exibidos
-      
+
+      // Para garantir que todos os itens sejam exibidos
     );
   }
 }
