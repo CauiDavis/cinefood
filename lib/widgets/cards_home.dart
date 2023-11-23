@@ -18,23 +18,19 @@ class _SelectableCardState extends State<CardsHome> {
           isSelected = !isSelected;
         });
       },
-      child: Container(
-        
-        child: Card(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(2),
-            side: BorderSide(
-              color: isSelected
-                  ? const Color(0xFFE1E0D7)
-                  : const Color(0xFFFEDE6B),
-              width: 1.0,
-            ),
+      child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(2),
+          side: BorderSide(
+            color:
+                isSelected ? const Color(0xFFE1E0D7) : const Color(0xFFFEDE6B),
+            width: 1.0,
           ),
-          color: Colors
-              .transparent, // Cor do Card condicionalmente com base no estado
-          child: Column(
-            children: [Text("aaaaaaaaaaaaaaaaa")],
-          ),
+        ),
+        color: Colors
+            .transparent, // Cor do Card condicionalmente com base no estado
+        child: Column(
+          children: [Text("aaaaaaaaaaaaaaaaa")],
         ),
       ),
     );
