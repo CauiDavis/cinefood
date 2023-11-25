@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class Pedido {
-  final String dataPedido;
-  final List<String> produtos;
-  final String statusPedido;
+class Request {
+  final String dataRequest;
+  final List<String> products;
+  final String statusRequest;
 
-  Pedido({
-    required this.dataPedido,
-    required this.produtos,
-    required this.statusPedido,
+  Request({
+    required this.dataRequest,
+    required this.products,
+    required this.statusRequest,
   });
 }
 
 class CardsRequest extends StatelessWidget {
-  final Pedido pedido;
+  final Request request;
 
-  CardsRequest({required this.pedido});
+  CardsRequest({required this.request});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +35,7 @@ class CardsRequest extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Data do Pedido: ${pedido.dataPedido}',
+              'Data do Pedido: ${request.dataRequest}',
               style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             SizedBox(height: 8),
@@ -45,13 +45,13 @@ class CardsRequest extends StatelessWidget {
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: pedido.produtos.map((produto) {
-                return Text('- $produto');
+              children: request.products.map((product) {
+                return Text('- $product');
               }).toList(),
             ),
             SizedBox(height: 8),
             Text(
-              'Status do Pedido: ${pedido.statusPedido}',
+              'Status do Pedido: ${request.statusRequest}',
               style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
           ],
