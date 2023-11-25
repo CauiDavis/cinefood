@@ -3,8 +3,14 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/cards_home.dart';
 
-class HomeClient extends StatelessWidget {
+class HomeClient extends StatefulWidget {
   HomeClient({super.key});
+
+  @override
+  State<HomeClient> createState() => _HomeClientState();
+}
+
+class _HomeClientState extends State<HomeClient> {
   bool isCardSelected = false;
 
   @override
