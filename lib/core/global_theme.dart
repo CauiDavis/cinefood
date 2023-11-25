@@ -4,6 +4,11 @@ import 'custom_colors.dart';
 
 class GlobalTheme {
   static final ThemeData themeData = ThemeData(
+    textTheme: const TextTheme(
+      bodyMedium: TextStyle(color: CustomColors.secondaryColor),
+      bodySmall: TextStyle(color: CustomColors.secondaryColor),
+      bodyLarge: TextStyle(color: CustomColors.secondaryColor),
+    ),
     fontFamily: 'Roboto',
     scaffoldBackgroundColor: CustomColors.primaryColor,
     primarySwatch: Colors.blue,
