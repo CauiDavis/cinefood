@@ -1,6 +1,7 @@
 import 'package:cinefood/core/custom_colors.dart';
-import 'package:cinefood/widgets/cards_history.dart';
 import 'package:flutter/material.dart';
+
+import '../../widgets/cards/cards_history.dart';
 
 class HistoryClient extends StatelessWidget {
   const HistoryClient({super.key});
