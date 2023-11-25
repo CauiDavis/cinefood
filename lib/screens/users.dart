@@ -1,5 +1,6 @@
 import 'package:cinefood/core/custom_colors.dart';
-import 'package:cinefood/screens/client_page.dart';
+import 'package:cinefood/screens/admin/admin_page.dart';
+import 'package:cinefood/screens/client/client_page.dart';
 import 'package:flutter/material.dart';
 
 class Users extends StatelessWidget {
@@ -50,7 +51,12 @@ class Users extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => AdminPage()),
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     maximumSize: const Size(240, 40),
                   ),
