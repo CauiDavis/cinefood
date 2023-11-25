@@ -41,11 +41,13 @@ class Users extends StatelessWidget {
                             color: CustomColors.quaternaryColor,
                           ),
                         ),
-                        SizedBox(width: 4),
-                        Icon(
-                          Icons.person_2,
-                          color: CustomColors.quaternaryColor,
-                        ),
+                        const SizedBox(width: 4),
+                        Image(
+                            width: 30,
+                            height: 30,
+                            image: Image.asset(
+                              'assets/clientIcon.png',
+                            ).image)
                       ],
                     ),
                   ),
@@ -69,11 +71,13 @@ class Users extends StatelessWidget {
                           color: CustomColors.quaternaryColor,
                         ),
                       ),
-                      SizedBox(width: 4),
-                      Icon(
-                        Icons.person_3,
-                        color: CustomColors.quaternaryColor,
-                      ),
+                      const SizedBox(width: 4),
+                      Image(
+                          width: 30,
+                          height: 30,
+                          image: Image.asset(
+                            'assets/admIcon.png',
+                          ).image)
                     ],
                   ),
                 ),
