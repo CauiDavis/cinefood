@@ -32,31 +32,31 @@ class RequestAdmin extends StatelessWidget {
                 child: ListView(
                   children: [
                     CardsRequest(
-                      pedido: Pedido(
-                        dataPedido: '23/11/2023',
-                        produtos: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusPedido: 'Em Processo',
+                      request: Request(
+                        dataRequest: '23/11/2023',
+                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
+                        statusRequest: 'Em Processo',
                       ),
                     ),
                     CardsRequest(
-                      pedido: Pedido(
-                        dataPedido: '23/11/2023',
-                        produtos: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusPedido: 'Em Processo',
+                      request: Request(
+                        dataRequest: '23/11/2023',
+                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
+                        statusRequest: 'Em Processo',
                       ),
                     ),
                     CardsRequest(
-                      pedido: Pedido(
-                        dataPedido: '23/11/2023',
-                        produtos: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusPedido: 'Em Processo',
+                      request: Request(
+                        dataRequest: '23/11/2023',
+                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
+                        statusRequest: 'Em Processo',
                       ),
                     ),
                     CardsRequest(
-                      pedido: Pedido(
-                        dataPedido: '23/11/2023',
-                        produtos: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusPedido: 'Em Processo',
+                      request: Request(
+                        dataRequest: '23/11/2023',
+                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
+                        statusRequest: 'Em Processo',
                       ),
                     ),
 
