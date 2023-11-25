@@ -5,6 +5,7 @@ import 'package:cinefood/screens/client/profile_client.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/app_bar.dart';
+import '../../widgets/bottom_navigatorbar/custom_bottom_navigator_bar_client.dart';
 
 
 class ClientPage extends StatefulWidget {
@@ -51,27 +52,8 @@ class _MyHomePageState extends State<ClientPage> {
           });
         },
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CustomBottomNavigationBarClient(
         currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Início',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.history),
-            label: 'Histórico',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite),
-            label: 'Favoritos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Perfil',
-          ),
-          // Adicione mais BottomNavigationBarItems conforme necessário
-        ],
         onTap: (index) {
           _pageController.animateToPage(
             index,
