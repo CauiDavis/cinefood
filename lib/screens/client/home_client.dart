@@ -1,7 +1,7 @@
 import 'package:cinefood/core/custom_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/cards_home.dart';
+import '../../widgets/cards/cards_home.dart';
 
 class HomeClient extends StatefulWidget {
   HomeClient({super.key});
