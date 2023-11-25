@@ -1,7 +1,7 @@
-import 'package:cinefood/widgets/cards_home.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/custom_colors.dart';
+import '../../widgets/cards/cards_home.dart';
 
 class FavoritesClient extends StatelessWidget {
   const FavoritesClient({super.key});
