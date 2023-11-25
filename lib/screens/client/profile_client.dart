@@ -1,4 +1,4 @@
-import 'package:cinefood/widgets/cards_request.dart';
+import 'package:cinefood/widgets/cards/cards_request.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/custom_colors.dart';
