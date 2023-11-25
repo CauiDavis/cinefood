@@ -1,7 +1,7 @@
 import 'package:cinefood/core/custom_colors.dart';
 import 'package:flutter/material.dart';
 
-import '../../widgets/cards_request.dart';
+import '../../widgets/cards/cards_request.dart';
 
 class RequestAdmin extends StatelessWidget {
   const RequestAdmin({super.key});
