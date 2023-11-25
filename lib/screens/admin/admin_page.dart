@@ -1,8 +1,8 @@
 import 'package:cinefood/screens/admin/profile_admin.dart';
 import 'package:cinefood/screens/admin/request_admin.dart';
 import 'package:flutter/material.dart';
-
 import '../../widgets/app_bar.dart';
+import '../../widgets/bottom_navigatorbar/custom_bottom_navigator_bar_admin.dart';
 
 class AdminPage extends StatefulWidget {
   @override
@@ -45,18 +45,8 @@ class _MyHomePageState extends State<AdminPage> {
           });
         },
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: CustomBottomNavigationBarAdmin(
         currentIndex: _currentIndex,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.edit_document),
-            label: 'Pedidos',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Perfil',
-          ),
-        ],
         onTap: (index) {
           _pageController.animateToPage(
             index,
