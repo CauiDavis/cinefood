@@ -37,7 +37,9 @@ class FavoritesClient extends StatelessWidget {
                 ),
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  return CardsHome();
+                  return CardsHome(
+                     backgroundImage: AssetImage('assets/pipoca$index.png'),
+                  );
                 },
               ))),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
