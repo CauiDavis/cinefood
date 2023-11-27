@@ -26,6 +26,7 @@ class ProfileClient extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: 10, top: 10),
                     child: CircleAvatar(
+                      backgroundImage: AssetImage('assets/avatar1.png'),
                       radius: 50,
                       backgroundColor: CustomColors.quaternaryColor,
                     ),
