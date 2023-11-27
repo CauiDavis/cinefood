@@ -26,11 +26,12 @@ class ProfileAdmin extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: 10, top: 10),
                     child: CircleAvatar(
+                      backgroundImage: AssetImage('assets/avatar2.png'),
                       radius: 50,
                       backgroundColor: CustomColors.quaternaryColor,
                     ),
                   ),
-                  Text('Constatino',
+                  Text('Valeria',
                       style: TextStyle(
                         color: CustomColors.quaternaryColor,
                         fontSize: 20,
