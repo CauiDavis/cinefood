@@ -37,7 +37,8 @@ class _HomeClientState extends State<HomeClient> {
                 ),
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  return CardsHome();
+                  return CardsHome(
+                      backgroundImage: AssetImage('assets/pipoca$index.png'));
                 },
               ))),
               SizedBox(
@@ -57,7 +58,9 @@ class _HomeClientState extends State<HomeClient> {
                 ),
                 itemCount: 4,
                 itemBuilder: (context, index) {
-                  return CardsHome();
+                  return CardsHome(
+                    backgroundImage: AssetImage('assets/bebida$index.png'),
+                  );
                 },
               ))),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
