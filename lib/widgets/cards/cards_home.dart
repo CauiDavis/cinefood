@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class CardsHome extends StatefulWidget {
-  const CardsHome({super.key});
+  final ImageProvider<Object> backgroundImage;
+
+  const CardsHome({
+    required this.backgroundImage,
+    Key? key,
+  }) : super(key: key);
 
   @override
   _SelectableCardState createState() => _SelectableCardState();
@@ -27,10 +32,24 @@ class _SelectableCardState extends State<CardsHome> {
             width: 1.0,
           ),
         ),
-        color: Colors
-            .transparent, // Cor do Card condicionalmente com base no estado
-        child: Column(
-          children: [Text("aaaaaaaaaaaaaaaaa")],
+        color: Colors.transparent,
+        child: Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: widget.backgroundImage,
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Center(
+            child: Text(
+              "aaaaaaaaaaaaaaaaa",
+              style: TextStyle(
+                color: isSelected ? Colors.white : Colors.black,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ),
     );
