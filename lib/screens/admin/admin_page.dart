@@ -5,6 +5,13 @@ import '../../widgets/app_bar.dart';
 import '../../widgets/bottom_navigatorbar/custom_bottom_navigator_bar_admin.dart';
 
 class AdminPage extends StatefulWidget {
+  final String name;
+  final String photo;
+  
+  AdminPage({
+    required this.name,
+    required this.photo,
+  });
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -35,9 +42,12 @@ class _MyHomePageState extends State<AdminPage> {
       ).buildAppBar(),
       body: PageView(
         controller: _pageController,
-        children: [
+        children: <Widget>[
           RequestAdmin(),
-          ProfileAdmin(),
+          ProfileAdmin(
+            userPhotoUrl: widget.photo,
+            userName: widget.name,
+          ),
         ],
         onPageChanged: (index) {
           setState(() {
