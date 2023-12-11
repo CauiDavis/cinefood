@@ -1,10 +1,13 @@
+import 'package:cinefood/core/custom_colors.dart';
 import 'package:flutter/material.dart';
 
 class CardsHome extends StatefulWidget {
   final ImageProvider<Object> backgroundImage;
+  final String dynamicText;
 
   const CardsHome({
     required this.backgroundImage,
+    required this.dynamicText,
     Key? key,
   }) : super(key: key);
 
@@ -40,13 +43,19 @@ class _SelectableCardState extends State<CardsHome> {
               fit: BoxFit.cover,
             ),
           ),
-          child: Center(
-            child: Text(
-              "aaaaaaaaaaaaaaaaa",
-              style: TextStyle(
-                color: isSelected ? Colors.white : Colors.black,
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
+          child: Align(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                widget.dynamicText,
+                style: TextStyle(
+                  color: isSelected
+                      ? CustomColors.secondaryColor
+                      : CustomColors.tertiaryColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ),
