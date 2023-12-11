@@ -4,10 +4,27 @@ import 'package:flutter/material.dart';
 import '../../core/custom_colors.dart';
 
 class ProfileClient extends StatelessWidget {
-  const ProfileClient({super.key});
+  final String userPhotoUrl;
+  final String userName;
+
+  const ProfileClient({
+    required this.userPhotoUrl,
+    required this.userName,
+  });
+
+  String getFirstTwoNames(String fullName) {
+    List<String> names = fullName.split(' ');
+    if (names.length >= 2) {
+      return '${names[0]} ${names[1]}';
+    } else {
+      return fullName;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    String firstTwoNames = getFirstTwoNames(userName);
+    
     return Scaffold(
       body: SafeArea(
           child: Center(
@@ -26,12 +43,12 @@ class ProfileClient extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.only(right: 10, top: 10),
                     child: CircleAvatar(
-                      backgroundImage: AssetImage('assets/avatar1.png'),
+                      backgroundImage: NetworkImage(userPhotoUrl),
                       radius: 50,
                       backgroundColor: CustomColors.quaternaryColor,
                     ),
                   ),
-                  Text('Constatino',
+                  Text(firstTwoNames,
                       style: TextStyle(
                         color: CustomColors.quaternaryColor,
                         fontSize: 20,
@@ -84,7 +101,7 @@ class ProfileClient extends StatelessWidget {
                         statusRequest: 'Em Processo',
                       ),
                     ),
-                    
+
                     // Adicione mais itens conforme necessário
                   ],
                 ),
