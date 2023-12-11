@@ -1,10 +1,49 @@
+import 'dart:developer';
+
 import 'package:cinefood/core/custom_colors.dart';
 import 'package:cinefood/screens/admin/admin_page.dart';
 import 'package:cinefood/screens/client/client_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
-class Users extends StatelessWidget {
+class Users extends StatefulWidget {
   const Users({super.key});
+
+  @override
+  State<Users> createState() => _UsersState();
+}
+
+class _UsersState extends State<Users> {
+  Future<User?> google() async {
+    List<String>? loginMethods;
+    try {
+      final googleUser = await GoogleSignIn().signIn();
+      if (googleUser != null) {
+        loginMethods = await FirebaseAuth.instance
+            .fetchSignInMethodsForEmail(googleUser.email);
+
+        if (loginMethods.contains('password')) {
+        } else {
+          final googleAuth = await googleUser.authentication;
+          final firebaseCredential = GoogleAuthProvider.credential(
+              accessToken: googleAuth.accessToken, idToken: googleAuth.idToken);
+
+          final userCredential = await FirebaseAuth.instance
+              .signInWithCredential(firebaseCredential);
+
+          return userCredential.user;
+        }
+      }
+    } on FirebaseAuthException catch (e, s) {
+      log(e.toString());
+      log(s.toString());
+      if (e.code == 'account-exists-with-different-credential') {
+      } else {}
+    }
+
+    return null;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +63,20 @@ class Users extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.all(20.0),
                   child: ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ClientPage()),
-                      );
+                    onPressed: () async {
+                      User? user = await google();
+                      if (user != null) {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ClientPage(
+                              photo: user.photoURL ?? '',
+                              name: user.displayName ?? '',
+                            ),
+                          ),
+                        );
+                      }
+                      ;
                     },
                     style: ElevatedButton.styleFrom(
                         maximumSize: const Size(240, 40)),
@@ -53,11 +101,19 @@ class Users extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => AdminPage()),
-                    );
+                  onPressed: () async {
+                    User? user = await google();
+                    if (user != null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => AdminPage(
+                            photo: user.photoURL ?? '',
+                            name: user.displayName ?? '',
+                          ),
+                        ),
+                      );
+                    };
                   },
                   style: ElevatedButton.styleFrom(
                     maximumSize: const Size(240, 40),
