@@ -3,6 +3,19 @@ import 'package:flutter/material.dart';
 
 import '../../widgets/cards/cards_home.dart';
 
+List<String> Pipocas = [
+  'Pipoca P',
+  'Pipoca M',
+  'Pipoca G',
+  'Pipoca GG',
+];
+List<String> Bebida = [
+  'Fanta uva',
+  'Fanta laranja',
+  'Coca-cola',
+  'Guaraná',
+];
+
 class HomeClient extends StatefulWidget {
   HomeClient({super.key});
 
@@ -38,7 +51,9 @@ class _HomeClientState extends State<HomeClient> {
                 itemCount: 4,
                 itemBuilder: (context, index) {
                   return CardsHome(
-                      backgroundImage: AssetImage('assets/pipoca$index.png'));
+                    backgroundImage: AssetImage('assets/pipoca$index.png'),
+                    dynamicText: Pipocas[index],
+                  );
                 },
               ))),
               SizedBox(
@@ -60,6 +75,7 @@ class _HomeClientState extends State<HomeClient> {
                 itemBuilder: (context, index) {
                   return CardsHome(
                     backgroundImage: AssetImage('assets/bebida$index.png'),
+                    dynamicText: Bebida[index],
                   );
                 },
               ))),
@@ -67,7 +83,7 @@ class _HomeClientState extends State<HomeClient> {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    maximumSize: const Size(100, 40),
+                    maximumSize: const Size(120, 40),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -89,7 +105,7 @@ class _HomeClientState extends State<HomeClient> {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    maximumSize: const Size(120, 40),
+                    maximumSize: const Size(140, 40),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
