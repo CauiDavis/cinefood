@@ -68,7 +68,7 @@ class RequestAdmin extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    maximumSize: const Size(120, 40),
+                    maximumSize: const Size(140, 40),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -90,7 +90,7 @@ class RequestAdmin extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
-                    maximumSize: const Size(120, 40),
+                    maximumSize: const Size(140, 40),
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
