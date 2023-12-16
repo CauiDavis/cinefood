@@ -1,5 +1,6 @@
+import 'package:cinefood/widgets/cards/cards_favorite.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../core/custom_colors.dart';
 import '../../widgets/cards/cards_home.dart';
 
@@ -29,20 +30,41 @@ class FavoritesClient extends StatelessWidget {
                 ),
               ),
               Expanded(
-                  child: SizedBox.expand(
-                      child: GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: 1.2,
+                child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('favoritos')
+                      .snapshots(),
+                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Erro: ${snapshot.error}'),
+                      );
+                    }
+
+                    // Use os documentos reais do Firestore no lugar dos CardsRequest
+                    return ListView(
+                      children:
+                          snapshot.data!.docs.map((DocumentSnapshot document) {
+                        Map<String, dynamic> data =
+                            document.data() as Map<String, dynamic>;
+
+                        // Substitua os dados fictícios pelos dados reais do Firestore
+                        return CardsFavorite(
+                          favorite: Favorite(
+                            products: List<String>.from(data['nomefav']),
+                          ),
+                        );
+                      }).toList(),
+                    );
+                  },
                 ),
-                itemCount: 4,
-                itemBuilder: (context, index) {
-                  return CardsHome(
-                    backgroundImage: AssetImage('assets/pipoca$index.png'),
-                    dynamicText: '',
-                  );
-                },
-              ))),
+              ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                 ElevatedButton(
                   onPressed: () {},
