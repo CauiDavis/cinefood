@@ -1,4 +1,5 @@
 import 'package:cinefood/core/custom_colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/cards/cards_request.dart';
@@ -29,39 +30,42 @@ class RequestAdmin extends StatelessWidget {
                 ),
               ),
               Expanded(
-                child: ListView(
-                  children: [
-                    CardsRequest(
-                      request: Request(
-                        dataRequest: '23/11/2023',
-                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusRequest: 'Em Processo',
-                      ),
-                    ),
-                    CardsRequest(
-                      request: Request(
-                        dataRequest: '23/11/2023',
-                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusRequest: 'Em Processo',
-                      ),
-                    ),
-                    CardsRequest(
-                      request: Request(
-                        dataRequest: '23/11/2023',
-                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusRequest: 'Em Processo',
-                      ),
-                    ),
-                    CardsRequest(
-                      request: Request(
-                        dataRequest: '23/11/2023',
-                        products: ['Produto 1', 'Produto 2', 'Produto 3'],
-                        statusRequest: 'Em Processo',
-                      ),
-                    ),
+                child: StreamBuilder(
+                  stream: FirebaseFirestore.instance
+                      .collection('pedidos')
+                      .snapshots(),
+                  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
 
-                    // Adicione mais itens conforme necessário
-                  ],
+                    if (snapshot.hasError) {
+                      return Center(
+                        child: Text('Erro: ${snapshot.error}'),
+                      );
+                    }
+
+                    // Use os documentos reais do Firestore no lugar dos CardsRequest
+                    return ListView(
+                      children:
+                          snapshot.data!.docs.map((DocumentSnapshot document) {
+                        Map<String, dynamic> data =
+                            document.data() as Map<String, dynamic>;
+
+                        // Substitua os dados fictícios pelos dados reais do Firestore
+                        return CardsRequest(
+                          request: Request(
+                            dataRequest: data['data'],
+                            products: List<String>.from(data['pedidos']),
+                            statusRequest: data['status'],
+                            
+                          ), isAdmin: true,
+                        );
+                      }).toList(),
+                    );
+                  },
                 ),
               ),
               Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
