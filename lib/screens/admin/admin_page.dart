@@ -1,6 +1,10 @@
+import 'dart:developer';
+
 import 'package:cinefood/screens/admin/profile_admin.dart';
 import 'package:cinefood/screens/admin/request_admin.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../widgets/app_bar.dart';
 import '../../widgets/bottom_navigatorbar/custom_bottom_navigator_bar_admin.dart';
 
@@ -31,12 +35,22 @@ class _MyHomePageState extends State<AdminPage> {
     _pageController.dispose();
     super.dispose();
   }
+  Future<void> logoutApp() async {
+    try {
+      await GoogleSignIn().signOut();
+      FirebaseAuth.instance.signOut();
+    } on FirebaseAuthException catch (e, s) {
+      log('Falha no logout!');
+      log(s.toString());
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        onPressed: () {
+        onPressed: () async {
+          await logoutApp();
           Navigator.pop(context);
         },
       ).buildAppBar(),
