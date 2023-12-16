@@ -58,8 +58,8 @@ class HistoryClient extends StatelessWidget {
                           // Substitua os dados fictícios pelos dados reais do Firestore
                           return CardsHistory(
                             history: History(
-                              dataHistory: data['dataHistory'],
-                              products: List<String>.from(data['products']),
+                              dataHistory: data['data'],
+                              products: List<String>.from(data['pedidos']),
                             ),
                           );
                         }).toList(),
