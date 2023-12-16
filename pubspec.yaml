@@ -2,7 +2,7 @@ name: cinefood
 description: A new Flutter project.
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.1 <4.0.0'
+  sdk: ">=3.0.1 <4.0.0"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -28,13 +28,29 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  google_sign_in: ^6.1.6
+  flutter_native_splash: ^2.3.8
+  flutter_launcher_icons: ^0.13.1
   flutter:
     sdk: flutter
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  firebase_auth: ^4.15.1
+  firebase_core: ^2.24.2
+  cloud_firestore: ^4.13.6
+
+flutter_native_splash:
+  color: "#432727"
+  image: "assets/Splash.png"
+  android: true
+
+flutter_icons:
+  android: "launcher_icon"
+  image_path: "assets/Icon.png"
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/Icon-android.png"
 
 dev_dependencies:
   flutter_test:
@@ -52,30 +68,28 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
-  
-     
+
   # To add assets to your application, add an assets section, like this:
   assets:
-   - assets/scraxyIcon.png
-   - assets/appbarIcon.png
-   - assets/admIcon.png
-   - assets/clientIcon.png
-   - assets/exitIcon.png
-   - assets/pipoca1.png
-   - assets/pipoca2.png
-   - assets/pipoca3.png
-   - assets/pipoca0.png
-   - assets/bebida1.png
-   - assets/bebida2.png
-   - assets/bebida3.png
-   - assets/bebida0.png
-   - assets/avatar1.png
-   - assets/avatar2.png
+    - assets/scraxyIcon.png
+    - assets/appbarIcon.png
+    - assets/admIcon.png
+    - assets/clientIcon.png
+    - assets/exitIcon.png
+    - assets/pipoca1.png
+    - assets/pipoca2.png
+    - assets/pipoca3.png
+    - assets/pipoca0.png
+    - assets/bebida1.png
+    - assets/bebida2.png
+    - assets/bebida3.png
+    - assets/bebida0.png
+    - assets/avatar1.png
+    - assets/avatar2.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

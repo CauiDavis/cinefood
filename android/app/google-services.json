@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "525272559726",
+    "project_id": "cinefood-e3d3a",
+    "storage_bucket": "cinefood-e3d3a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:525272559726:android:330750394a28beadbd367f",
+        "android_client_info": {
+          "package_name": "com.example.cinefood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "525272559726-9sv48i0eb71au2ulld16sgp4cl7si7jd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzq1nLdhU2S1IXbO_VbjIIlIAHpYkTu3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "525272559726-9sv48i0eb71au2ulld16sgp4cl7si7jd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
